@@ -4,7 +4,7 @@ const TodoList = () => {
   return (
     <div>
       <h3>Todo List</h3>
-      <button>Create Task</button>
+      <button className="btn btn-primary">Create Task</button>
     </div>
   );
 };
