@@ -4,8 +4,17 @@ import CreateTaskPopup from "../modals/CreateTaskPopup";
 const TodoList = () => {
   const [modal, setModal] = useState(false);
 
+  const [taskList, setTaskList] = useState([]);
+
   const toggle = () => {
     setModal(!modal);
+  };
+
+  const saveTask = (taskObj) => {
+    let tempList = taskList;
+    tempList.push(taskObj);
+    setTaskList(tempList);
+    setModal(false);
   };
 
   return (
@@ -16,8 +25,12 @@ const TodoList = () => {
           Create Task
         </button>
       </div>
-      <div className="task-container">stuff</div>
-      <CreateTaskPopup toggle={toggle} modal={modal} />s
+      <div className="task-container">
+        {taskList.map((obj) => (
+          <li>{obj.Name}</li>
+        ))}
+      </div>
+      <CreateTaskPopup toggle={toggle} modal={modal} save={saveTask} />
     </>
   );
 };
