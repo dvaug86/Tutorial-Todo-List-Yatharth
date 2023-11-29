@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CreateTask from "../modals/createTask";
+import CreateTaskPopup from "../modals/CreateTaskPopup";
 
 const TodoList = () => {
   const [modal, setModal] = useState(false);
@@ -17,7 +17,7 @@ const TodoList = () => {
         </button>
       </div>
       <div className="task-container">stuff</div>
-      <CreateTask toggle={toggle} modal={modal} />s
+      <CreateTaskPopup toggle={toggle} modal={modal} />s
     </>
   );
 };

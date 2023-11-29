@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const createTask = ({ modal, toggle }) => {
+const CreateTaskPopup = ({ modal, toggle }) => {
+  const [taskName, setTaskName] = useState("");
+  const [description, setDescription] = useState("");
+
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>Create Task</ModalHeader>
@@ -9,13 +12,13 @@ const createTask = ({ modal, toggle }) => {
         <form action="">
           <div className="form-group">
             <label>Task Name</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" value={taskName} />
           </div>
           <div className="form-group">
             <label>Description</label>
             <textarea
               className="form-control"
-              id=""
+              value={description}
               cols="30"
               rows="5"
             ></textarea>
@@ -34,4 +37,4 @@ const createTask = ({ modal, toggle }) => {
   );
 };
 
-export default createTask;
+export default CreateTaskPopup;
