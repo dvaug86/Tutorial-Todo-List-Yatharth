@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ taskObj, index }) => {
+const Card = ({ taskObj, index, deleteTask }) => {
   const colors = [
     {
       primaryColor: "#5D93E1",
@@ -23,6 +23,10 @@ const Card = ({ taskObj, index }) => {
       secondaryColor: "#F3F0FD",
     },
   ];
+
+  const handleDelete = () => {
+    deleteTask(index);
+  };
 
   return (
     <div className="card-wrapper me-5">
@@ -51,8 +55,7 @@ const Card = ({ taskObj, index }) => {
           <i
             className="fas fa-trash-alt"
             style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
-
-            // onClick={handleDelete}
+            onClick={handleDelete}
           ></i>
         </div>
       </div>
